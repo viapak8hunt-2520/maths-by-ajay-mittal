@@ -6,6 +6,7 @@ Premium public website for mathematics coaching (Laravel 13, Blade, Tailwind CSS
 
 - Docker & Docker Compose
 - (Optional) Node.js 22+ and PHP 8.4+ for local development without Docker
+- Use php for artisan commands: /opt/alt/php83/usr/bin/php
 
 ## Quick start (Docker)
 
