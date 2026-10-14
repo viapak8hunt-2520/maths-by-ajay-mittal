@@ -1,0 +1,102 @@
+{
+  "_dm-sans-400-normal-BwCSEQnW.woff": {
+    "file": "assets/dm-sans-400-normal-BwCSEQnW.woff",
+    "src": "_dm-sans-400-normal-BwCSEQnW.woff"
+  },
+  "_dm-sans-400-normal-CW0RaeGs.woff2": {
+    "file": "assets/dm-sans-400-normal-CW0RaeGs.woff2",
+    "src": "_dm-sans-400-normal-CW0RaeGs.woff2"
+  },
+  "_dm-sans-500-normal-B9HHJjqV.woff2": {
+    "file": "assets/dm-sans-500-normal-B9HHJjqV.woff2",
+    "src": "_dm-sans-500-normal-B9HHJjqV.woff2"
+  },
+  "_dm-sans-500-normal-Dr3UlScf.woff": {
+    "file": "assets/dm-sans-500-normal-Dr3UlScf.woff",
+    "src": "_dm-sans-500-normal-Dr3UlScf.woff"
+  },
+  "_dm-sans-600-normal-Aqo67rzb.woff2": {
+    "file": "assets/dm-sans-600-normal-Aqo67rzb.woff2",
+    "src": "_dm-sans-600-normal-Aqo67rzb.woff2"
+  },
+  "_dm-sans-600-normal-BmdmIIQ2.woff": {
+    "file": "assets/dm-sans-600-normal-BmdmIIQ2.woff",
+    "src": "_dm-sans-600-normal-BmdmIIQ2.woff"
+  },
+  "_dm-sans-700-normal-CUSSCpQX.woff": {
+    "file": "assets/dm-sans-700-normal-CUSSCpQX.woff",
+    "src": "_dm-sans-700-normal-CUSSCpQX.woff"
+  },
+  "_dm-sans-700-normal-DvUfVpUG.woff2": {
+    "file": "assets/dm-sans-700-normal-DvUfVpUG.woff2",
+    "src": "_dm-sans-700-normal-DvUfVpUG.woff2"
+  },
+  "_fonts-0Bw7oyE6.css": {
+    "file": "assets/fonts-0Bw7oyE6.css",
+    "src": "_fonts-0Bw7oyE6.css"
+  },
+  "_motion-DWqgwikk.js": {
+    "file": "assets/motion-DWqgwikk.js",
+    "name": "motion"
+  },
+  "_source-serif-4-400-normal-DJ5YJwmz.woff2": {
+    "file": "assets/source-serif-4-400-normal-DJ5YJwmz.woff2",
+    "src": "_source-serif-4-400-normal-DJ5YJwmz.woff2"
+  },
+  "_source-serif-4-400-normal-Dn3IlU-Z.woff": {
+    "file": "assets/source-serif-4-400-normal-Dn3IlU-Z.woff",
+    "src": "_source-serif-4-400-normal-Dn3IlU-Z.woff"
+  },
+  "_source-serif-4-600-normal-DMD1h6_f.woff": {
+    "file": "assets/source-serif-4-600-normal-DMD1h6_f.woff",
+    "src": "_source-serif-4-600-normal-DMD1h6_f.woff"
+  },
+  "_source-serif-4-600-normal-DouSKlru.woff2": {
+    "file": "assets/source-serif-4-600-normal-DouSKlru.woff2",
+    "src": "_source-serif-4-600-normal-DouSKlru.woff2"
+  },
+  "_source-serif-4-700-normal-3V4Pv1hj.woff": {
+    "file": "assets/source-serif-4-700-normal-3V4Pv1hj.woff",
+    "src": "_source-serif-4-700-normal-3V4Pv1hj.woff"
+  },
+  "_source-serif-4-700-normal-CGGdTIBe.woff2": {
+    "file": "assets/source-serif-4-700-normal-CGGdTIBe.woff2",
+    "src": "_source-serif-4-700-normal-CGGdTIBe.woff2"
+  },
+  "resources/css/admin.css": {
+    "file": "assets/admin-8TNxWsoW.css",
+    "name": "admin",
+    "names": [
+      "admin.css"
+    ],
+    "src": "resources/css/admin.css",
+    "isEntry": true
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-CspPM-sx.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/admin.js": {
+    "file": "assets/admin-CUHYAgTv.js",
+    "name": "admin",
+    "src": "resources/js/admin.js",
+    "isEntry": true,
+    "imports": [
+      "_motion-DWqgwikk.js"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-B9CmH9O9.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_motion-DWqgwikk.js"
+    ]
+  }
+}

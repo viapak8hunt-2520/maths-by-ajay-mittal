@@ -1,0 +1,87 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: maths-ajay-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-maths_ajay}
+      MYSQL_USER: ${DB_USERNAME:-maths}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-maths_secret}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_secret}
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    volumes:
+      - maths_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+      start_period: 20s
+    networks:
+      - maths
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: maths-ajay-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      DB_HOST: mysql
+      DB_DATABASE: ${DB_DATABASE:-maths_ajay}
+      DB_USERNAME: ${DB_USERNAME:-maths}
+      DB_PASSWORD: ${DB_PASSWORD:-maths_secret}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - maths
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: maths-ajay-nginx
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    networks:
+      - maths
+
+  node:
+    image: node:22-alpine
+    container_name: maths-ajay-node
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    command: sh -c "npm install && npm run build"
+    profiles:
+      - build
+
+  vite:
+    image: node:22-alpine
+    container_name: maths-ajay-vite
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "5173:5173"
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    profiles:
+      - dev
+
+networks:
+  maths:
+    driver: bridge
+
+volumes:
+  maths_mysql_data:

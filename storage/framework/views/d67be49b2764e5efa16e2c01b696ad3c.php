@@ -1,0 +1,9 @@
+<?php $__env->startSection('page_title','Enquiries'); ?>
+<?php $__env->startSection('content'); ?>
+<form method="get" class="mb-4 flex gap-2"><input class="admin-input w-64" name="q" value="<?php echo e(request('q')); ?>" placeholder="Search"><select class="admin-input" name="status"><option value="">All statuses</option><?php $__currentLoopData = \App\Enums\EnquiryStatus::cases(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><option value="<?php echo e($s->value); ?>" <?php if(request('status')===$s->value): echo 'selected'; endif; ?>><?php echo e($s->label()); ?></option><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></select><button class="admin-btn-secondary" type="submit">Filter</button></form>
+<div class="admin-card overflow-x-auto"><table class="admin-table"><thead><tr><th>Name</th><th>Phone</th><th>Course</th><th>Status</th><th>Submitted</th></tr></thead><tbody>
+<?php $__currentLoopData = $enquiries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $enquiry): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><tr><td><a class="text-admin-primary" href="<?php echo e(route('admin.enquiries.show',$enquiry)); ?>"><?php echo e($enquiry->student_name); ?></a></td><td><?php echo e($enquiry->phone); ?></td><td><?php echo e($enquiry->course_interest); ?></td><td><?php echo e($enquiry->status->label()); ?></td><td><?php echo e($enquiry->created_at->format('d M Y H:i')); ?></td></tr><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</tbody></table><?php echo e($enquiries->links()); ?></div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /var/www/html/resources/views/admin/enquiries/index.blade.php ENDPATH**/ ?>
